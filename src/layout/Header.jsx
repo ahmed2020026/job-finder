@@ -1,0 +1,17 @@
+import Logo from "../assets/images/briefcase.svg"
+const Header = () => {
+    return (
+        <div className='container'>
+            <div className="flex justify-between items-center">
+                <div className="flex justify-start gap-2 items-center">
+                    <img src={Logo} alt="logo" className="bg-dark p-1.5 rounded-md" />
+                    <h1 className="font-black text-xl">
+                        Job<span className="text-primary">Finder</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Header
