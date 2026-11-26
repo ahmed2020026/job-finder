@@ -6,7 +6,7 @@ const Hero = () => {
             </h2>
 
             <p className="text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-                Discover thousands of opportunities across different industries. <br />
+                Discover thousands of opportunities across different industries.
                 Find the right role, connect with top companies, and take the next
                 step in your career.
             </p>
