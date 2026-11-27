@@ -1,23 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
 
+*{
+  @apply transition-none
+}
+@theme {
+    --color-primary: #2563EB;
+    --color-dark: #0F172A;
+    --color-background: #F8FAFC;
+    --color-muted: #64748B;
+}
+
 body {
-  font-family: "Manrope", sans-serif;
-  background-color: #F8FAFC;
+    font-family: "Manrope", sans-serif;
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300;
 }
 
 .container {
-  @apply container mx-auto px-4 sm:px-12 lg:px-24 xl:px-40 py-4
+    @apply container mx-auto px-4 sm:px-12 lg:px-24 xl:px-40 py-4;
 }
 
-@theme {
-  --color-primary: #2563EB;
-  --color-dark: #0F172A;
-  --color-background: #F8FAFC;
-  --color-muted: #64748B;
-}
 @custom-variant dark (&:where(.dark, .dark *));
 
-body {
-    @apply bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300;
-}
