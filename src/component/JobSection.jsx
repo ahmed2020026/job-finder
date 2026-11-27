@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Banknote, BriefcaseBusiness, MapPin, X } from "lucide-react";
 import Send from "./send.svg";
@@ -19,8 +18,9 @@ const JobSection = ({ job }) => {
 
     return (
         <>
-            <div className="shadow-lg bg-white border-t border-muted/20 p-3 rounded-md">
-                <h3 className="font-semibold text-lg text-dark/80">
+            {/* Job Card */}
+            <div className="shadow-lg bg-white dark:bg-gray-800 border-t border-muted/20 p-3 rounded-md transition-colors duration-200">
+                <h3 className="font-semibold text-lg text-dark/80 dark:text-white">
                     {job.title}
                 </h3>
 
@@ -47,24 +47,35 @@ const JobSection = ({ job }) => {
                     </div>
                 </div>
 
+                {/* Footer */}
                 <div className="flex justify-between items-center border-t border-muted/30 pt-3 mt-3">
                     <p className="text-muted text-sm">
                         Posted {getTimeAgo(job.createdAt)}
                     </p>
 
                     <div className="flex justify-center items-center gap-2.5">
+                        {/* View Button */}
                         <button
                             onClick={() => setShowDetails(true)}
-                            className="py-1.5 text-primary border border-primary bg-white text-sm flex justify-center items-center gap-1.5 px-3 rounded-md cursor-pointer"
+                            className="py-1.5 text-primary border border-primary bg-white dark:bg-gray-800 text-sm flex justify-center items-center gap-1.5 px-3 rounded-md cursor-pointer hover:bg-primary/5 dark:hover:bg-primary/10 transition"
                         >
-                            <img src={eye} alt="View" className="w-4 h-4" />
+                            <img
+                                src={eye}
+                                alt="View"
+                                className="w-4 h-4"
+                            />
                             View
                         </button>
 
+                        {/* Apply Button */}
                         <button
-                            className="bg-primary py-1.5 text-white text-sm flex justify-center items-center gap-1.5 px-3 rounded-md cursor-pointer"
+                            className="bg-primary py-1.5 text-white text-sm flex justify-center items-center gap-1.5 px-3 rounded-md cursor-pointer hover:opacity-90 transition"
                         >
-                            <img src={Send} alt="Apply" className="w-4 h-4" />
+                            <img
+                                src={Send}
+                                alt="Apply"
+                                className="w-4 h-4"
+                            />
                             Apply
                         </button>
                     </div>
@@ -79,12 +90,12 @@ const JobSection = ({ job }) => {
                 >
                     <div
                         onClick={(e) => e.stopPropagation()}
-                        className="bg-white w-full max-w-lg rounded-xl p-5 shadow-xl max-h-[90vh] overflow-y-auto"
+                        className="bg-white dark:bg-gray-800 w-full max-w-lg rounded-xl p-5 shadow-xl max-h-[90vh] overflow-y-auto transition-colors duration-200"
                     >
                         {/* Header */}
                         <div className="flex justify-between items-start gap-3 border-b border-muted/20 pb-3">
                             <div>
-                                <h2 className="text-xl font-bold text-dark">
+                                <h2 className="text-xl font-bold text-dark dark:text-white">
                                     {job.title}
                                 </h2>
 
@@ -93,9 +104,10 @@ const JobSection = ({ job }) => {
                                 </p>
                             </div>
 
+                            {/* Close Button */}
                             <button
                                 onClick={() => setShowDetails(false)}
-                                className="p-1 rounded-md hover:bg-gray-100 cursor-pointer"
+                                className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-dark dark:text-white cursor-pointer transition"
                             >
                                 <X size={22} />
                             </button>
@@ -121,7 +133,7 @@ const JobSection = ({ job }) => {
 
                         {/* Description */}
                         <div className="mb-4">
-                            <h3 className="font-semibold text-dark mb-2">
+                            <h3 className="font-semibold text-dark dark:text-white mb-2">
                                 Job Description
                             </h3>
 
@@ -132,13 +144,15 @@ const JobSection = ({ job }) => {
 
                         {/* Requirements */}
                         <div className="mb-4">
-                            <h3 className="font-semibold text-dark mb-2">
+                            <h3 className="font-semibold text-dark dark:text-white mb-2">
                                 Requirements
                             </h3>
 
                             <ul className="list-disc list-inside text-sm text-muted space-y-2">
                                 {job.requirements?.map((requirement, index) => (
-                                    <li key={index}>{requirement}</li>
+                                    <li key={index}>
+                                        {requirement}
+                                    </li>
                                 ))}
                             </ul>
                         </div>
@@ -147,7 +161,11 @@ const JobSection = ({ job }) => {
                         <button
                             className="w-full bg-primary text-white py-2 text-sm rounded-md flex justify-center items-center gap-2 cursor-pointer hover:opacity-90 transition"
                         >
-                            <img src={Send} alt="" className="w-4 h-4" />
+                            <img
+                                src={Send}
+                                alt=""
+                                className="w-4 h-4"
+                            />
                             Apply Now
                         </button>
                     </div>
